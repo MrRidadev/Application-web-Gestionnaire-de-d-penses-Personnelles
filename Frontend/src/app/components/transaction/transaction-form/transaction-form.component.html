@@ -1,1 +1,32 @@
-<p>transaction-form works!</p>
+<div class="card p-3 mb-3">
+  <h4>{{ model.id ? 'Modifier' : 'Ajouter' }} une transaction</h4>
+  <form (ngSubmit)="save()" #transactionForm="ngForm">
+    <div class="mb-3">
+      <label for="categorie" class="form-label">Catégorie</label>
+      <input type="text" id="categorie" class="form-control" [(ngModel)]="model.categorie" name="categorie" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="date" class="form-label">Date</label>
+      <input type="date" id="date" class="form-control" [(ngModel)]="model.date" name="date" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" id="description" class="form-control" [(ngModel)]="model.description" name="description" />
+    </div>
+
+    <div class="mb-3">
+      <label for="montant" class="form-label">Montant</label>
+      <input type="number" id="montant" class="form-control" [(ngModel)]="model.montant" name="montant" required />
+    </div>
+
+    <div class="mb-3">
+      <label for="budgetId" class="form-label">Budget ID</label>
+      <input type="number" id="budgetId" class="form-control" [(ngModel)]="model.budgetId" name="budgetId" />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!transactionForm.form.valid">{{ model.id ? 'Mettre à jour' : 'Ajouter' }}</button>
+    <button type="button" class="btn btn-secondary ms-2" (click)="cancel()">Annuler</button>
+  </form>
+</div>
