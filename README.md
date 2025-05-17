@@ -82,14 +82,14 @@ cd budget-manager/backend
 ### 1. 📌 Diagramme de cas d'utilisation (Use Case)
 Ce diagramme montre les interactions entre l’utilisateur et les principales fonctionnalités du système.
 
-![img.png](img.png)
+https://github.com/MrRidadev/Budget-Manager-/blob/main/img.png
 
 
 ### 2. 🧱 Diagramme de classes
 
-![img_1.png](img_1.png)
+https://github.com/MrRidadev/Budget-Manager-/blob/main/img_1.png
 
 
 ### 3. 🔁 Diagramme de séquence (exemple : ajouter une transaction)
 
-![image.png](image.png)
+https://github.com/MrRidadev/Budget-Manager-/blob/main/image.png
