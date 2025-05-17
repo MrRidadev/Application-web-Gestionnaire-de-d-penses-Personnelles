@@ -3,6 +3,6 @@ export interface Transaction {
   categorie: string;
   date: string;
   description: string;
-  montant: number;
+  mantant: number;
   budgetId?: number; // liaison avec budget
 }

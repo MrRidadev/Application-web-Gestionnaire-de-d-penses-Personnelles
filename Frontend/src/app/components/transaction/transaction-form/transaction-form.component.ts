@@ -20,7 +20,7 @@ export class TransactionFormComponent implements OnChanges {
     categorie: '',
     date: '',
     description: '',
-    montant: 0,
+    mantant: 0,
     budgetId: undefined
   };
 
@@ -34,7 +34,7 @@ export class TransactionFormComponent implements OnChanges {
         categorie: '',
         date: '',
         description: '',
-        montant: 0,
+        mantant: 0,
         budgetId: undefined
       };
     }
