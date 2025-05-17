@@ -9,13 +9,17 @@ import {FormsModule} from '@angular/forms';
   selector: 'app-budget-list',
   templateUrl: './budget-list.component.html',
   imports: [
-    BudgetFormComponent,CommonModule,FormsModule
+    BudgetFormComponent,
+    CommonModule,
+    FormsModule
   ],
+  standalone: true,
   styleUrls: ['./budget-list.component.css']
 })
 export class BudgetListComponent implements OnInit {
   budgets: Budget[] = [];
   selectedBudget?: Budget;
+  newBudgetMode: boolean = false;
 
   constructor(private budgetService: BudgetService) {}
 
@@ -24,7 +28,9 @@ export class BudgetListComponent implements OnInit {
   }
 
   loadBudgets(): void {
-    this.budgetService.getAllBudgets().subscribe((data: Budget[]) => this.budgets = data);
+    this.budgetService.getAllBudgets().subscribe((data: Budget[]) => {
+      this.budgets = data;
+    });
   }
 
   deleteBudget(id?: number): void {
@@ -35,9 +41,18 @@ export class BudgetListComponent implements OnInit {
 
   selectBudget(budget: Budget): void {
     this.selectedBudget = { ...budget };
+    this.newBudgetMode = false;
+  }
+
+  selectBudgetForNew(): void {
+    this.selectedBudget = undefined;
+    this.newBudgetMode = true;
   }
 
   clearSelection(): void {
     this.selectedBudget = undefined;
+    this.newBudgetMode = false;
+    this.loadBudgets();
   }
 }
+

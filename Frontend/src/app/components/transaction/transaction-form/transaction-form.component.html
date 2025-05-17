@@ -1,1 +1,22 @@
-<p>transaction-form works!</p>
+<h2>Transactions</h2>
+
+<ul>
+  <li *ngFor="let t of transactions">
+    {{ t.description }} - {{ t.montant }} € - {{ t.date }} - {{ t.categorie }}
+    <button (click)="edit(t)">Modifier</button>
+    <button (click)="delete(t.id!)">Supprimer</button>
+  </li>
+</ul>
+
+<hr>
+
+<h3>{{ isEdit ? 'Modifier' : 'Ajouter' }} une transaction</h3>
+
+<form (ngSubmit)="saveTransaction()">
+  <input type="text" [(ngModel)]="transaction.description" name="description" placeholder="Description" required />
+  <input type="number" [(ngModel)]="transaction.montant" name="montant" placeholder="Montant" required />
+  <input type="date" [(ngModel)]="transaction.date" name="date" required />
+  <input type="text" [(ngModel)]="transaction.categorie" name="categorie" placeholder="Catégorie" required />
+  <button type="submit">{{ isEdit ? 'Mettre à jour' : 'Ajouter' }}</button>
+  <button type="button" *ngIf="isEdit" (click)="resetForm()">Annuler</button>
+</form>

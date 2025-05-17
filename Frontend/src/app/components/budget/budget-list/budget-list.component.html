@@ -1,6 +1,9 @@
 <div class="container mt-4">
   <h2>Liste des budgets</h2>
 
+  <!-- Add New Budget Button -->
+  <button class="btn btn-success mb-3" (click)="selectBudgetForNew()">Ajouter un nouveau budget</button>
+
   <table class="table table-bordered">
     <thead>
     <tr>
@@ -12,9 +15,9 @@
     </thead>
     <tbody>
     <tr *ngFor="let budget of budgets">
-      <td>{{ budget.nom }}</td>
-      <td>{{ budget.montantInitial }}</td>
-      <td>{{ budget.montantActuel || '-' }}</td>
+      <td>{{ budget.category }}</td>
+      <td>{{ budget.limitAmount }}</td>
+      <td>{{ budget.spentAmount || '-' }}</td>
       <td>
         <button class="btn btn-sm btn-primary" (click)="selectBudget(budget)">Modifier</button>
         <button class="btn btn-sm btn-danger" (click)="deleteBudget(budget.id)">Supprimer</button>
@@ -24,7 +27,7 @@
   </table>
 
   <app-budget-form
-    *ngIf="selectedBudget"
+    *ngIf="selectedBudget || newBudgetMode"
     [budget]="selectedBudget"
     (formSubmit)="clearSelection()"
   ></app-budget-form>
