@@ -1,1 +1,31 @@
-<p>budget-list works!</p>
+<div class="container mt-4">
+  <h2>Liste des budgets</h2>
+
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Montant Initial</th>
+      <th>Montant Actuel</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let budget of budgets">
+      <td>{{ budget.nom }}</td>
+      <td>{{ budget.montantInitial }}</td>
+      <td>{{ budget.montantActuel || '-' }}</td>
+      <td>
+        <button class="btn btn-sm btn-primary" (click)="selectBudget(budget)">Modifier</button>
+        <button class="btn btn-sm btn-danger" (click)="deleteBudget(budget.id)">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <app-budget-form
+    *ngIf="selectedBudget"
+    [budget]="selectedBudget"
+    (formSubmit)="clearSelection()"
+  ></app-budget-form>
+</div>
