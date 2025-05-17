@@ -16,9 +16,9 @@ export class BudgetFormComponent implements OnChanges {
   @Output() formSubmit = new EventEmitter<void>();
 
   formData: Budget = {
-    nom: '',
-    montantInitial: 0,
-    montantActuel: 0
+    category: '',
+    limitAmount: 0,
+    spentAmount: 0
   };
 
   constructor(private budgetService: BudgetService) {}
@@ -41,7 +41,7 @@ export class BudgetFormComponent implements OnChanges {
       this.budgetService.addBudget(this.formData).subscribe(() => {
         alert('Budget créé!');
         this.formSubmit.emit();
-        this.formData = { nom: '', montantInitial: 0, montantActuel: 0 };
+        this.formData = { category: '', limitAmount: 0, spentAmount: 0 };
       });
     }
   }
