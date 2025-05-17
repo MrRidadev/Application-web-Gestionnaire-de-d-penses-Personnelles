@@ -34,7 +34,7 @@ export class BudgetListComponent implements OnInit {
   }
 
   selectBudget(budget: Budget): void {
-    this.selectedBudget = { ...budget };  // clone to edit
+    this.selectedBudget = { ...budget };
   }
 
   clearSelection(): void {
