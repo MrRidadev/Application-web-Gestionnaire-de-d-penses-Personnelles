@@ -9,8 +9,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/transaction")
+@CrossOrigin(origins = "http://localhost:4200")
 public class TransactionController {
-    private TransactionService transactionService;
+    private final TransactionService transactionService;
 
     @Autowired
     public TransactionController(TransactionService transactionService) {

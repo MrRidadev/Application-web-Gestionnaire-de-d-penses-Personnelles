@@ -3,6 +3,7 @@ import { TransactionService } from '../../../services/transaction.service';
 import { Transaction } from '../../../models/transaction.model';
 import {TransactionFormComponent} from '../transaction-form/transaction-form.component';
 import {CommonModule, NgIf} from '@angular/common';
+import {Budget} from '../../../models/budget.model';
 
 @Component({
   selector: 'app-transaction-list',
@@ -24,8 +25,11 @@ export class TransactionListComponent implements OnInit {
     this.loadTransactions();
   }
 
+
   loadTransactions(): void {
-    this.transactionService.getAllTransactions().subscribe(data => this.transactions = data);
+    this.transactionService.getAllTransactions().subscribe((data: Transaction[]) => {
+      this.transactions = data;
+    });
   }
 
   selectTransaction(transaction: Transaction): void {
