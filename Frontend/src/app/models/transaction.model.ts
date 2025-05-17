@@ -1,8 +1,8 @@
 export interface Transaction {
   id?: number;
-  montant: number;
-  description: string;
-  date: string;
   categorie: string;
+  date: string;
+  description: string;
+  montant: number;
   budgetId?: number; // liaison avec budget
 }

@@ -1,1 +1,36 @@
-<p>transaction-list works!</p>
+<div class="container mt-4">
+  <h2>Liste des transactions</h2>
+
+  <button class="btn btn-success mb-3" (click)="addNewTransaction()">Ajouter une transaction</button>
+
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Catégorie</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Montant</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let transaction of transactions">
+      <td>{{ transaction.categorie }}</td>
+      <td>{{ transaction.date }}</td>
+      <td>{{ transaction.description }}</td>
+      <td>{{ transaction.montant }}</td>
+      <td>
+        <button class="btn btn-primary btn-sm" (click)="selectTransaction(transaction)">Modifier</button>
+        <button class="btn btn-danger btn-sm" (click)="deleteTransaction(transaction.id)">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <app-transaction-form
+    *ngIf="showForm"
+    [transaction]="selectedTransaction"
+    (formSubmit)="onFormSubmit()"
+    (formCancel)="onFormCancel()"
+  ></app-transaction-form>
+</div>
