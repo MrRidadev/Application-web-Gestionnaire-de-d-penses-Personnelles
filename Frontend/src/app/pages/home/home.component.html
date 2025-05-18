@@ -1,9 +1,77 @@
-<div class="container mt-5 text-center">
-  <h1 class="mb-4">Bienvenue dans le Gestionnaire de Dépenses Personnelles</h1>
-  <p class="lead">Gérez vos budgets, suivez vos transactions et maîtrisez vos finances.</p>
-'
-  <div class="mt-5">
-    <a routerLink="/budgets" class="btn btn-primary btn-lg me-3">Voir Budgets</a>
-    <a routerLink="/transactions" class="btn btn-success btn-lg">Voir Transactions</a>
+<!-- Hero Banner / Slider (like in your screenshot) -->
+<section class="banner full">
+  <article>
+    <img src="https://wallpaperbat.com/img/918864-download-futuristic-project-management-wallpaper.jpg" alt="" />
+    <div class="inner">
+      <header>
+        <p>Gérez vos finances simplement</p>
+        <h2>Gestionnaire de Dépenses</h2>
+      </header>
+    </div>
+  </article>
+  <article>
+    <img src="https://www.itl.cat/pngfile/big/290-2903898_business-manager.jpg" alt="" />
+    <div class="inner">
+      <header>
+        <p>Créez et suivez vos budgets mensuels</p>
+        <h2>Suivi Budgétaire</h2>
+      </header>
+    </div>
+  </article>
+  <article>
+    <img src="https://wallpaperaccess.com/full/732216.jpg" alt="" />
+    <div class="inner">
+      <header>
+        <p>Enregistrez toutes vos transactions</p>
+        <h2>Transactions Financières</h2>
+      </header>
+    </div>
+  </article>
+</section>
+
+<!-- Two-column section like in your image -->
+<section id="one" class="wrapper style2">
+  <div class="inner">
+    <div class="grid-style">
+
+      <!-- Budgets Card -->
+      <div>
+        <div class="box">
+          <div class="image fit">
+            <img src="https://australiancybersecuritymagazine.com.au/wp-content/uploads/2021/06/shutterstock_515044024-702x336.jpg" alt="Budget" />
+          </div>
+          <div class="content">
+            <header class="align-center">
+              <p>Suivi & objectifs</p>
+              <h2>Budgets</h2>
+            </header>
+            <p>Créez et gérez vos budgets mensuels en toute simplicité.</p>
+            <footer class="align-center">
+              <a routerLink="/budgets" class="button alt">Voir Budgets</a>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transactions Card -->
+      <div>
+        <div class="box">
+          <div class="image fit">
+            <img src="https://th.bing.com/th/id/OIP.AbnJ4RVMET4j5Qxc_hTkuQHaEJ?cb=iwc2&rs=1&pid=ImgDetMain" alt="Transactions" />
+          </div>
+          <div class="content">
+            <header class="align-center">
+              <p>Dépenses & revenus</p>
+              <h2>Transactions</h2>
+            </header>
+            <p>Enregistrez vos dépenses et revenus pour suivre votre solde.</p>
+            <footer class="align-center">
+              <a routerLink="/transactions" class="button alt">Voir Transactions</a>
+            </footer>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
+</section>

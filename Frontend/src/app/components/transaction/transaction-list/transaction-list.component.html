@@ -1,36 +1,49 @@
-<div class="container mt-4">
-  <h2>Liste des transactions</h2>
+<div class="container">
+  <div class="overlay-container shadow-lg rounded-4 p-4">
 
-  <button class="btn btn-success mb-3" (click)="addNewTransaction()">Ajouter une transaction</button>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="fw-bold text-success mb-0">📋 Liste des Transactions</h2>
+      <button class="btn btn-success d-flex align-items-center" (click)="addNewTransaction()">
+        <i class="bi bi-plus-circle me-2"></i> Ajouter une transaction
+      </button>
+    </div>
 
-  <table class="table table-bordered">
-    <thead>
-    <tr>
-      <th>Catégorie</th>
-      <th>Date</th>
-      <th>Description</th>
-      <th>Montant</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let transaction of transactions">
-      <td>{{ transaction.categorie }}</td>
-      <td>{{ transaction.date }}</td>
-      <td>{{ transaction.description }}</td>
-      <td>{{ transaction.mantant }}</td>
-      <td>
-        <button class="btn btn-primary btn-sm" (click)="selectTransaction(transaction)">Modifier</button>
-        <button class="btn btn-danger btn-sm" (click)="deleteTransaction(transaction.id)">Supprimer</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+    <div class="table-responsive rounded-4">
+      <table class="table custom-table table-borderless">
+        <thead>
+        <tr>
+          <th>📂 Catégorie</th>
+          <th>📅 Date</th>
+          <th>📝 Description</th>
+          <th>💸 Montant</th>
+          <th class="text-center">⚙️ Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let transaction of transactions" class="table-row">
+          <td class="fw-semibold">{{ transaction.categorie }}</td>
+          <td>{{ transaction.date }}</td>
+          <td>{{ transaction.description }}</td>
+          <td>{{ transaction.mantant | currency:'MAD':'symbol' }}</td>
+          <td class="text-center">
+            <button class="btn btn-outline-primary btn-sm me-2" (click)="selectTransaction(transaction)">
+              <i class="bi bi-pencil-square">Modifier</i>
+            </button>
+            <button class="btn btn-outline-danger btn-sm" (click)="deleteTransaction(transaction.id)">
+              <i class="bi bi-trash">Supprimer</i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <app-transaction-form
-    *ngIf="showForm"
-    [transaction]="selectedTransaction"
-    (formSubmit)="onFormSubmit()"
-    (formCancel)="onFormCancel()"
-  ></app-transaction-form>
+    <app-transaction-form
+      *ngIf="showForm"
+      [transaction]="selectedTransaction"
+      (formSubmit)="onFormSubmit()"
+      (formCancel)="onFormCancel()"
+    ></app-transaction-form>
+
+  </div>
 </div>

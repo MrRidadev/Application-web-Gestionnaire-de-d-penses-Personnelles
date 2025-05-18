@@ -1,34 +1,48 @@
-<div class="container mt-4">
-  <h2>Liste des budgets</h2>
+<div class="container">
+  <div class="overlay-container shadow-lg rounded-4 p-4">
 
-  <!-- Add New Budget Button -->
-  <button class="btn btn-success mb-3" (click)="selectBudgetForNew()">Ajouter un nouveau budget</button>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="fw-bold text-primary mb-0">💼 Liste des Budgets</h2>
+      <button class="btn btn-success d-flex align-items-center" (click)="selectBudgetForNew()">
+        <i class="bi bi-plus-circle me-2"></i> Ajouter un budget
+      </button>
+    </div>
 
-  <table class="table table-bordered">
-    <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Montant Initial</th>
-      <th>Montant Actuel</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let budget of budgets">
-      <td>{{ budget.category }}</td>
-      <td>{{ budget.limitAmount }}</td>
-      <td>{{ budget.spentAmount || '-' }}</td>
-      <td>
-        <button class="btn btn-sm btn-primary" (click)="selectBudget(budget)">Modifier</button>
-        <button class="btn btn-sm btn-danger" (click)="deleteBudget(budget.id)">Supprimer</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+    <div class="table-responsive rounded-4">
+      <table class="table custom-table table-borderless">
+        <thead>
+        <tr>
+          <th>📝 Nom</th>
+          <th>💰 Montant Initial</th>
+          <th>💸 Montant Actuel</th>
+          <th class="text-center">⚙️ Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let budget of budgets" class="table-row">
+          <td class="fw-semibold text-dark">{{ budget.category }}</td>
+          <td>{{ budget.limitAmount | currency:'MAD':'symbol' }}</td>
+          <td>
+            {{ budget.spentAmount !== undefined ? (budget.spentAmount | currency:'MAD':'symbol') : '-' }}
+          </td>
+          <td class="text-center">
+            <button class="btn btn-outline-primary btn-sm me-2" (click)="selectBudget(budget)">
+              <i class="bi bi-pencil-square">Modifier</i>
+            </button>
+            <button class="btn btn-outline-danger btn-sm" (click)="deleteBudget(budget.id)">
+              <i class="bi bi-trash">Supprimer</i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <app-budget-form
-    *ngIf="selectedBudget || newBudgetMode"
-    [budget]="selectedBudget"
-    (formSubmit)="clearSelection()"
-  ></app-budget-form>
+    <app-budget-form
+      *ngIf="selectedBudget || newBudgetMode"
+      [budget]="selectedBudget"
+      (formSubmit)="clearSelection()"
+    ></app-budget-form>
+
+  </div>
 </div>

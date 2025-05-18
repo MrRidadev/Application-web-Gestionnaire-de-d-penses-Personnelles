@@ -28,11 +28,17 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/css/main.css",
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/skel.min.js",
+              "src/assets/js/util.js",
+              "src/assets/js/main.js"
             ]
+
           },
           "configurations": {
             "production": {
